@@ -351,12 +351,114 @@
   }
 
   // ==============================================
+  // Testimonials (Google Reviews Simulation)
+  // ==============================================
+  const testimonials = [
+    {
+      name: "Amit Verma",
+      location: "Chandigarh",
+      text: "Absolutely stunning location! The staff went above and beyond to make our stay comfortable. The food was delicious and home-like.",
+      rating: 5
+    },
+    {
+      name: "Sarah Jenkins",
+      location: "UK",
+      text: "A hidden gem in Dalhousie. Waking up to that mountain view was the highlight of our India trip. Highly recommended for peace lovers.",
+      rating: 5
+    },
+    {
+      name: "Rahul & Neha",
+      location: "Mumbai",
+      text: "We hosted our wedding here and it was magical. The arrangements were flawless and the venue is just picture perfect.",
+      rating: 5
+    },
+    {
+      name: "Dr. K.L. Gupta",
+      location: "Delhi",
+      text: "Clean rooms, polite staff, and great amenities. The swimming pool with the valley view is amazing.",
+      rating: 5
+    }
+  ];
+
+  function renderTestimonials() {
+    const container = document.getElementById('testimonials-container');
+    if (!container) return;
+
+    let html = '';
+    testimonials.forEach(function(t) {
+      const stars = Array(t.rating).fill('<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>').join('');
+      
+      html += `
+        <div class="testimonial-card fade-in" style="display: none;">
+          <p class="testimonial-card__text">"${t.text}"</p>
+          <div class="testimonial-card__author">
+            <span class="testimonial-card__name">${t.name}</span>
+            <span class="testimonial-card__location">${t.location}</span>
+            <div class="testimonial-card__stars">${stars}</div>
+            <div style="font-size: 12px; color: #888; margin-top: 5px;">Via Google Reviews</div>
+          </div>
+        </div>
+      `;
+    });
+
+    container.innerHTML = html;
+
+    // Simple slider logic
+    let currentIndex = 0;
+    const cards = container.querySelectorAll('.testimonial-card');
+    
+    function showNext() {
+      cards.forEach(c => c.style.display = 'none');
+      cards[currentIndex].style.display = 'block';
+      cards[currentIndex].classList.add('fade-in--visible'); // Ensure animation triggers
+      currentIndex = (currentIndex + 1) % cards.length;
+    }
+
+    if (cards.length > 0) {
+      showNext();
+      setInterval(showNext, 5000); // Rotate every 5 seconds
+    }
+  }
+  
+  // ==============================================
+  // Wedding Form Handler
+  // ==============================================
+  const weddingForm = document.getElementById('wedding-form');
+  if (weddingForm) {
+    weddingForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const btn = weddingForm.querySelector('button');
+      const originalText = btn.textContent;
+      
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      
+      setTimeout(function() {
+        showNotification('Enquiry sent! We will contact you soon to plan your dream wedding.', 'success');
+        weddingForm.reset();
+        document.getElementById('wedding-modal').classList.remove('modal--open');
+        btn.textContent = originalText;
+        btn.disabled = false;
+      }, 1500);
+    });
+  }
+
+  // Close modal on outside click
+  window.addEventListener('click', function(e) {
+    const modal = document.getElementById('wedding-modal');
+    if (e.target === modal) {
+      modal.classList.remove('modal--open');
+    }
+  });
+
+  // ==============================================
   // Initialize
   // ==============================================
   function init() {
     handleHeaderScroll();
     updateActiveNavLink();
     setupGallery();
+    renderTestimonials();
     
     // Trigger initial animations for visible elements
     setTimeout(function() {
