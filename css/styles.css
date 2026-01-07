@@ -1831,3 +1831,185 @@ a:hover {
     page-break-inside: avoid;
   }
 }
+/* ===================================================
+   15. FOUNDERS SECTION
+   =================================================== */
+.founders {
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-gray-light);
+}
+
+.founders__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-24);
+  align-items: center;
+  margin-bottom: var(--space-24);
+}
+
+/* Image Presentation */
+.founders__image-wrapper {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.founders__image-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  border-radius: var(--radius-xl); /* Soft rounded corners */
+  overflow: hidden;
+  /* Subtle frame effect instead of heavy shadow */
+  box-shadow: 0 0 0 12px var(--color-off-white); 
+}
+
+.founders__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  /* Ensuring natural, warm tone */
+  filter: sepia(10%); 
+}
+
+/* Visionary Content */
+.founders__content {
+  padding-right: var(--space-8);
+}
+
+.founders__vision {
+  margin-top: var(--space-8);
+}
+
+.founders__quote {
+  font-family: var(--font-heading); /* Serif */
+  font-size: var(--text-2xl);
+  font-weight: 500;
+  line-height: 1.5;
+  font-style: italic;
+  color: var(--color-text);
+  margin-bottom: var(--space-6);
+  position: relative;
+}
+
+.founders__quote::before {
+  content: '“';
+  font-family: serif;
+  font-size: 8rem;
+  color: var(--color-accent); /* Gold color */
+  position: absolute;
+  top: -60px;
+  left: -40px;
+  opacity: 0.2;
+  line-height: 1;
+}
+
+.founders__signoff {
+  font-family: var(--font-accent);
+  font-size: var(--text-lg);
+  color: var(--color-priority);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--color-primary);
+}
+
+/* ===================================================
+   16. GUEST REVIEWS (TRUST)
+   =================================================== */
+.reviews {
+  padding-top: var(--space-16);
+  border-top: 1px solid var(--color-gray-light);
+}
+
+.reviews__header {
+  margin-bottom: var(--space-12);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reviews__grid {
+  gap: var(--space-8);
+}
+
+.review-card {
+  background: var(--color-off-white);
+  padding: var(--space-8);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  transition: transform var(--transition-base);
+}
+
+.review-card:hover {
+  transform: translateY(-4px);
+}
+
+.review-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-gray-light); /* Subtle divider */
+  padding-bottom: var(--space-2);
+}
+
+.review-card__name {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.review-card__platform {
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-gray);
+}
+
+.review-card__text {
+  font-size: var(--text-base);
+  color: var(--color-text-light);
+  line-height: 1.6;
+  margin-bottom: var(--space-6);
+  flex-grow: 1;
+}
+
+.review-card__stars {
+  color: var(--color-accent);
+  letter-spacing: 2px;
+  font-size: 0.9em;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .founders__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+    text-align: center;
+  }
+
+  .founders__content {
+    padding-right: 0;
+  }
+
+  .founders__image-wrapper {
+    order: -1; /* Image first on mobile */
+  }
+
+  .founders__image-container {
+    max-width: 100%;
+  }
+
+  .founders__quote::before {
+    left: -10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .reviews__grid {
+    grid-template-columns: 1fr;
+  }
+}
