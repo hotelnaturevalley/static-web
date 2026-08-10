@@ -2036,3 +2036,166 @@ a:hover {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* ===================================================
+   LEGAL PAGES & PRINT STYLES
+   =================================================== */
+
+.accordion-wrapper {
+  max-width: 800px;
+}
+
+.policy-accordion {
+  border: 1px solid var(--color-gray-light);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-4);
+  background: var(--color-white);
+  overflow: hidden;
+  transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.policy-accordion:hover {
+  box-shadow: var(--shadow-sm);
+  border-color: var(--color-primary-light);
+}
+
+.policy-accordion summary {
+  padding: var(--space-4) var(--space-6);
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-primary);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.policy-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.policy-accordion summary::after {
+  content: '+';
+  font-size: 1.5rem;
+  color: var(--color-accent);
+  transition: transform var(--transition-fast);
+  line-height: 1;
+}
+
+.policy-accordion[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.policy-accordion .accordion-content {
+  padding: 0 var(--space-6) var(--space-5);
+  color: var(--color-text);
+  line-height: 1.7;
+  font-family: var(--font-body);
+}
+
+.policy-accordion .accordion-content ul {
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-2);
+  padding-left: var(--space-5);
+}
+
+.policy-accordion .accordion-content p {
+  margin-bottom: var(--space-2);
+}
+
+/* Cancellation Grid Cards */
+.cancellation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-6);
+  margin-top: var(--space-6);
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cancel-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8) var(--space-6);
+  text-align: center;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.cancel-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-accent);
+}
+
+.cancel-tier {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  color: var(--color-primary);
+  margin-bottom: var(--space-3);
+  font-weight: 600;
+}
+
+.cancel-fee {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-accent);
+  background: var(--color-cream);
+  display: inline-block;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+}
+
+/* Print Media Query */
+@media print {
+  .header, .footer, .nav__overlay, .breadcrumbs, .last-updated {
+    display: none !important;
+  }
+  
+  body, main, .section {
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  .policy-accordion {
+    border: none !important;
+    box-shadow: none !important;
+    margin-bottom: var(--space-2) !important;
+  }
+  
+  .policy-accordion summary {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    color: #000 !important;
+  }
+  
+  .policy-accordion summary::after {
+    display: none !important;
+  }
+  
+  .policy-accordion[open] .accordion-content {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  
+  details {
+    display: block !important;
+  }
+  
+  details > summary {
+    display: block !important;
+  }
+  
+  .cancel-card {
+    box-shadow: none !important;
+    border: 1px solid #000 !important;
+    break-inside: avoid;
+  }
+}
