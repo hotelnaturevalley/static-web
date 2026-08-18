@@ -89,7 +89,7 @@ static-web/
 ### Update Contact Info
 
 Search for these in `index.html`:
-- Phone: `+91 97791 06655`
+- Phone: `+91 97796 16655`
 - Email: `info@naturevalley.in`
 - Address: `Hotel Nature Valley, Dalhousie Road...`
 
@@ -149,6 +149,16 @@ in `index.html` are shown instead — the site never breaks.
 - Facebook: `https://www.facebook.com/officialhotelnaturevalley`
 - WhatsApp: `https://wa.me/919779616655`
 - Google Maps listing / directions: `https://maps.app.goo.gl/u1JR2USoAEathQ8X8`
+
+---
+
+## Contact & Wedding Forms
+
+The site is static (no server), so both forms deliver enquiries via **WhatsApp**:
+on submit, a WhatsApp chat to **+91 97796 16655** opens with all form details
+pre-filled — the visitor just presses send. To use email delivery instead,
+sign up at [Formspree](https://formspree.io) (free) and point the forms at
+your Formspree endpoint in `js/main.js`.
 
 ---
 

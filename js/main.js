@@ -253,44 +253,57 @@
 
   // ==============================================
   // Contact Form Validation & Submission
+  // ----------------------------------------------
+  // Static site = no server to receive form posts.
+  // On submit we open a WhatsApp chat to the hotel
+  // with all enquiry details pre-filled, so every
+  // message actually reaches +91 97796 16655.
   // ==============================================
+  const WHATSAPP_NUMBER = '919779616655';
+
+  function sendEnquiryViaWhatsApp(lines) {
+    const url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' +
+      encodeURIComponent(lines.filter(Boolean).join('\n'));
+    window.open(url, '_blank', 'noopener');
+  }
+
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
-      
+
       const formData = new FormData(contactForm);
       const data = {};
       formData.forEach(function(value, key) {
         data[key] = value;
       });
-      
+
       // Basic validation
       if (!data.name || !data.email || !data.message) {
         showNotification('Please fill in all required fields.', 'error');
         return;
       }
-      
+
       // Email validation
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(data.email)) {
         showNotification('Please enter a valid email address.', 'error');
         return;
       }
-      
-      // Simulate form submission
-      const submitBtn = contactForm.querySelector('button[type="submit"]');
-      const originalText = submitBtn.textContent;
-      submitBtn.textContent = 'Sending...';
-      submitBtn.disabled = true;
-      
-      // For static site, we'll show success message
-      // In production, replace with actual form endpoint (Formspree, Netlify Forms, etc.)
-      setTimeout(function() {
-        showNotification('Thank you for your message! We will get back to you shortly.', 'success');
-        contactForm.reset();
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-      }, 1500);
+
+      sendEnquiryViaWhatsApp([
+        'New enquiry from naturevalley.in',
+        '',
+        'Name: ' + data.name,
+        'Email: ' + data.email,
+        data.phone ? 'Phone: ' + data.phone : '',
+        data.guests ? 'Guests: ' + data.guests : '',
+        '',
+        'Message:',
+        data.message
+      ]);
+
+      showNotification('Opening WhatsApp — just press send to deliver your enquiry.', 'success');
+      contactForm.reset();
     });
   }
 
@@ -422,24 +435,38 @@
   
   // ==============================================
   // Wedding Form Handler
+  // ----------------------------------------------
+  // Delivers the enquiry to the hotel's WhatsApp
+  // with all wedding details pre-filled.
   // ==============================================
   const weddingForm = document.getElementById('wedding-form');
   if (weddingForm) {
     weddingForm.addEventListener('submit', function(e) {
       e.preventDefault();
-      const btn = weddingForm.querySelector('button');
-      const originalText = btn.textContent;
-      
-      btn.textContent = 'Sending...';
-      btn.disabled = true;
-      
-      setTimeout(function() {
-        showNotification('Enquiry sent! We will contact you soon to plan your dream wedding.', 'success');
-        weddingForm.reset();
-        document.getElementById('wedding-modal').classList.remove('modal--open');
-        btn.textContent = originalText;
-        btn.disabled = false;
-      }, 1500);
+
+      const formData = new FormData(weddingForm);
+      const data = {};
+      formData.forEach(function(value, key) {
+        data[key] = value;
+      });
+
+      if (!data.name || !data.phone) {
+        showNotification('Please fill in your name and phone number.', 'error');
+        return;
+      }
+
+      sendEnquiryViaWhatsApp([
+        'Wedding enquiry from naturevalley.in',
+        '',
+        'Name: ' + data.name,
+        'Phone: ' + data.phone,
+        data.date ? 'Preferred date: ' + data.date : '',
+        data.guests ? 'Expected guests: ' + data.guests : ''
+      ]);
+
+      showNotification('Opening WhatsApp — just press send to deliver your wedding enquiry.', 'success');
+      weddingForm.reset();
+      document.getElementById('wedding-modal').classList.remove('modal--open');
     });
   }
 
@@ -486,7 +513,12 @@
       badgeText.textContent = data.rating.toFixed(1) + ' ★' + count + ' on Google';
     }
 
-    const reviews = (data.reviews || []).slice(0, 3);
+    // Google returns up to 5 reviews; shuffle and show a
+    // random 3 so the section changes on every page load.
+    const reviews = (data.reviews || [])
+      .slice()
+      .sort(function() { return Math.random() - 0.5; })
+      .slice(0, 3);
     if (!reviews.length) return;
 
     grid.innerHTML = reviews.map(function(r) {
