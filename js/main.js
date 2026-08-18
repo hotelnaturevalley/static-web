@@ -452,6 +452,82 @@
   });
 
   // ==============================================
+  // Google Reviews (Places API - New)
+  // ----------------------------------------------
+  // Fetches live Google reviews (author, rating, date,
+  // text, link) for the hotel and replaces the static
+  // fallback cards in #reviews-grid. If the API key is
+  // missing or the request fails, the static cards stay.
+  //
+  // Setup:
+  //   1. Google Cloud Console -> enable "Places API (New)"
+  //   2. Create an API key, restrict it:
+  //      - Application: HTTP referrers -> naturevalley.in/*
+  //      - API: Places API (New) only
+  //   3. Paste the key below.
+  // ==============================================
+  const GOOGLE_PLACES_API_KEY = ''; // <-- paste your API key here
+  const GOOGLE_PLACE_ID = 'ChIJjSkiRZSRHDkRQWExem6_c6k'; // Hotel Nature Valley, Banikhet
+  const GOOGLE_MAPS_LISTING_URL = 'https://maps.app.goo.gl/u1JR2USoAEathQ8X8';
+
+  function buildStars(rating) {
+    const full = Math.max(0, Math.min(5, Math.round(rating || 0)));
+    return '★★★★★'.slice(0, full) + '☆☆☆☆☆'.slice(0, 5 - full);
+  }
+
+  function renderGoogleReviews(data) {
+    const grid = document.getElementById('reviews-grid');
+    const badgeText = document.getElementById('google-rating-text');
+    if (!grid || !data) return;
+
+    // Aggregate badge: "4.8 ★ · 123 reviews on Google"
+    if (badgeText && typeof data.rating === 'number') {
+      const count = data.userRatingCount ? ' · ' + data.userRatingCount + ' reviews' : '';
+      badgeText.textContent = data.rating.toFixed(1) + ' ★' + count + ' on Google';
+    }
+
+    const reviews = (data.reviews || []).slice(0, 3);
+    if (!reviews.length) return;
+
+    grid.innerHTML = reviews.map(function(r) {
+      const name = (r.authorAttribution && r.authorAttribution.displayName) || 'Google user';
+      const when = r.relativePublishTimeDescription || '';
+      const text = (r.text && r.text.text) || '';
+      const link = r.googleMapsUri || GOOGLE_MAPS_LISTING_URL;
+      return '<article class="review-card">' +
+        '<div class="review-card__header">' +
+          '<span class="review-card__name">' + escapeHtml(name) + '</span>' +
+          '<span class="review-card__date">' + escapeHtml(when) + '</span>' +
+        '</div>' +
+        '<p class="review-card__text">"' + escapeHtml(text) + '"</p>' +
+        '<div class="review-card__footer">' +
+          '<span class="review-card__stars">' + buildStars(r.rating) + '</span>' +
+          '<a class="review-card__link" href="' + link + '" target="_blank" rel="noopener">Read on Google</a>' +
+        '</div>' +
+      '</article>';
+    }).join('');
+  }
+
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"']/g, function(ch) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch];
+    });
+  }
+
+  function fetchGoogleReviews() {
+    if (!GOOGLE_PLACES_API_KEY || !GOOGLE_PLACE_ID) return; // keep static fallback
+    const fields = 'rating,userRatingCount,reviews.rating,reviews.text,reviews.relativePublishTimeDescription,' +
+      'reviews.authorAttribution.displayName,reviews.googleMapsUri';
+    const url = 'https://places.googleapis.com/v1/places/' + encodeURIComponent(GOOGLE_PLACE_ID) +
+      '?fields=' + fields + '&key=' + encodeURIComponent(GOOGLE_PLACES_API_KEY);
+
+    fetch(url)
+      .then(function(res) { return res.ok ? res.json() : Promise.reject(res.status); })
+      .then(renderGoogleReviews)
+      .catch(function() { /* silent: static fallback cards remain */ });
+  }
+
+  // ==============================================
   // Initialize
   // ==============================================
   function init() {
@@ -459,6 +535,7 @@
     updateActiveNavLink();
     setupGallery();
     renderTestimonials();
+    fetchGoogleReviews();
     
     // Trigger initial animations for visible elements
     setTimeout(function() {

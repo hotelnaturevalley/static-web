@@ -109,12 +109,46 @@ Edit CSS custom properties at the top of `css/styles.css`:
 
 ## Booking System
 
-The "Book Now" buttons link to:
+The "Book Now" buttons link to the RevCatalyst booking engine:
 ```
-https://booking.trustifyedge.com/home?Token=book_a697fe49e-d0cd-40e9-ae17-51357b40597fe49
+https://hotel-nature-valley.revcatalyst.in
 ```
 
-To change the booking URL, search & replace this URL in `index.html`.
+To change the booking URL, search & replace this URL in `index.html` (and the legal pages).
+
+---
+
+## Live Google Reviews
+
+The reviews section can pull **live Google reviews** (author, star rating, date,
+text, and a link to the review) directly from the Google Places API — no backend
+needed, it runs in the browser.
+
+### Setup (one time)
+
+1. Go to [Google Cloud Console](https://console.cloud.google.com/) → create/select a project
+2. Enable **Places API (New)**
+3. Create an **API key**, then restrict it:
+   - Application restriction: **HTTP referrers** → `naturevalley.in/*` (and `localhost/*` for testing)
+   - API restriction: **Places API (New)** only
+4. Open `js/main.js` and paste the key into:
+   ```js
+   const GOOGLE_PLACES_API_KEY = ''; // <-- paste here
+   ```
+
+The Place ID is already configured (`ChIJjSkiRZSRHDkRQWExem6_c6k` = Hotel Nature Valley, Banikhet).
+
+**Fallback:** if no key is set (or the API call fails), the static review cards
+in `index.html` are shown instead — the site never breaks.
+
+---
+
+## Social & Maps Links
+
+- Instagram: `https://www.instagram.com/hotelnaturevalley/`
+- Facebook: `https://www.facebook.com/officialhotelnaturevalley`
+- WhatsApp: `https://wa.me/919779616655`
+- Google Maps listing / directions: `https://maps.app.goo.gl/u1JR2USoAEathQ8X8`
 
 ---
 

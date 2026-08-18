@@ -1,0 +1,9 @@
+{
+  "name": "hotel-nature-valley",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static website for Hotel Nature Valley, Dalhousie (naturevalley.in)",
+  "scripts": {
+    "dev": "npx --yes serve ."
+  }
+}
