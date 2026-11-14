@@ -561,6 +561,19 @@ a:hover {
   animation-delay: 0.5s;
 }
 
+/* SEO location suffix — visually small so it doesn't overwhelm the hero */
+.hero__title-location {
+  display: block;
+  font-family: var(--font-primary);
+  font-size: var(--text-sm);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  margin-top: var(--space-2);
+}
+
+
 .hero__subtitle {
   font-size: var(--text-lg);
   color: rgba(255, 255, 255, 0.9);
@@ -843,8 +856,26 @@ a:hover {
 
 .room-card__footer {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.room-card__booking-note {
+  font-size: 0.72rem;
+  color: var(--color-gray-dark);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.room-card__booking-note a {
+  color: var(--color-gray-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.room-card__booking-note a:hover {
+  color: var(--color-text);
 }
 
 .room-card__price {
