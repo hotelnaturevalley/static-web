@@ -1,0 +1,10 @@
+# Local audit documentation
+Nature-Valley-SEO-Audit.pdf
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Dependencies
+node_modules/
+npm-debug.log
