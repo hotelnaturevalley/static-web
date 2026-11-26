@@ -2,27 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://naturevalley.in/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-11-26</lastmod>
+  </url>
+  <url>
+    <loc>https://naturevalley.in/rooms/</loc>
+    <lastmod>2026-11-26</lastmod>
+  </url>
+  <url>
+    <loc>https://naturevalley.in/weddings/</loc>
+    <lastmod>2026-11-26</lastmod>
+  </url>
+  <url>
+    <loc>https://naturevalley.in/attractions/</loc>
+    <lastmod>2026-11-26</lastmod>
+  </url>
+  <url>
+    <loc>https://naturevalley.in/amenities/</loc>
+    <lastmod>2026-11-26</lastmod>
+  </url>
+  <url>
+    <loc>https://naturevalley.in/gallery/</loc>
+    <lastmod>2026-11-26</lastmod>
+  </url>
+  <url>
+    <loc>https://naturevalley.in/contact/</loc>
+    <lastmod>2026-11-26</lastmod>
   </url>
   <url>
     <loc>https://naturevalley.in/best-4-star-hotel-in-banikhet-dalhousie/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-11-26</lastmod>
   </url>
   <url>
     <loc>https://naturevalley.in/terms.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
+    <lastmod>2026-11-26</lastmod>
   </url>
   <url>
     <loc>https://naturevalley.in/privacy.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
+    <lastmod>2026-11-26</lastmod>
   </url>
   <url>
     <loc>https://naturevalley.in/cancellation.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
+    <lastmod>2026-11-26</lastmod>
   </url>
 </urlset>

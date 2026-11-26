@@ -26,8 +26,6 @@
   <!-- End Google Tag Manager -->
   <meta name="description"
     content="Hotel Nature Valley on Dalhousie Road, Banikhet: mountain-view rooms, dining and weddings near Dalhousie and Khajjiar. Call or book direct.">
-  <meta name="keywords"
-    content="Hotel Nature Valley, Dalhousie hotel, Dharamshala hotel, Himachal Pradesh resort, mountain hotel, nature resort, Khajjiar hotel">
   <meta name="author" content="Hotel Nature Valley">
 
   <!-- Open Graph / Social Media -->
@@ -35,45 +33,58 @@
   <meta property="og:description"
     content="Hotel Nature Valley on Dalhousie Road, Banikhet: mountain-view rooms, dining and weddings near Dalhousie and Khajjiar. Call or book direct.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://naturevalley.in">
-  <meta property="og:image" content="https://naturevalley.in/images/gallery/exterior-mountain-view.jpg">
+  <meta property="og:url" content="https://naturevalley.in/">
+  <meta property="og:image" content="https://naturevalley.in/images/gallery/exterior-mountain-view-og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
 
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Hotel near Dalhousie, Banikhet | Hotel Nature Valley">
   <meta name="twitter:description" content="Hotel Nature Valley on Dalhousie Road, Banikhet: mountain-view rooms, dining and weddings near Dalhousie and Khajjiar. Call or book direct.">
-  <meta name="twitter:image" content="https://naturevalley.in/images/gallery/exterior-mountain-view.jpg">
+  <meta name="twitter:image" content="https://naturevalley.in/images/gallery/exterior-mountain-view-og.jpg">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="images/icons/deer.png">
-  <link rel="apple-touch-icon" href="images/icons/deer.png">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="48x48" href="/images/icons/favicon-48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/icons/apple-touch-icon.png">
+
+  <!-- Preload Hero Poster -->
+  <link rel="preload" as="image" href="/images/hero/hero-poster.webp" fetchpriority="high">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap"
     rel="stylesheet">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="/css/styles.css">
 
   <title>Hotel near Dalhousie, Banikhet | Hotel Nature Valley</title>
 
-  <!-- Structured Data: LodgingBusiness -->
+  <!-- Structured Data: Hotel -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LodgingBusiness",
+    "@type": "Hotel",
+    "@id": "https://naturevalley.in/#hotel",
     "name": "Hotel Nature Valley",
     "url": "https://naturevalley.in/",
-    "logo": "https://naturevalley.in/images/icons/logo.png",
+    "logo": "https://naturevalley.in/images/icons/logo.webp",
     "image": [
-      "https://naturevalley.in/images/gallery/exterior-mountain-view.jpg",
-      "https://naturevalley.in/images/rooms/deluxe-room.jpg",
-      "https://naturevalley.in/images/rooms/premium-suite.jpg"
+      "https://naturevalley.in/images/gallery/exterior-mountain-view-banikhet.webp",
+      "https://naturevalley.in/images/rooms/deluxe-mountain-view-banikhet.webp",
+      "https://naturevalley.in/images/rooms/super-deluxe-valley-view-banikhet.webp"
     ],
-    "description": "Hotel Nature Valley on Dalhousie Road, Banikhet: mountain-view rooms, dining and weddings near Dalhousie and Khajjiar.",
+    "description": "Hotel Nature Valley on Dalhousie Road, Banikhet: 65 mountain-view rooms, glass-roofed swimming pool, dining and weddings near Dalhousie and Khajjiar.",
+    "numberOfRooms": 65,
+    "priceRange": "From ₹4,000 per night",
+    "starRating": {
+      "@type": "Rating",
+      "ratingValue": "4"
+    },
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Dalhousie Road, Surkhigala Banikhet",
@@ -84,12 +95,13 @@
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": "32.8544",
-      "longitude": "75.9937"
+      "latitude": 32.5481396,
+      "longitude": 75.9526147
     },
+    "hasMap": "https://maps.app.goo.gl/u1JR2USoAEathQ8X8",
     "telephone": ["+91-98160-49850", "+91-98150-49850", "+91-97796-16655"],
     "email": "reservation@naturevalley.in",
-    "checkinTime": "12:00",
+    "checkinTime": "14:00",
     "checkoutTime": "11:00",
     "sameAs": [
       "https://www.facebook.com/officialhotelnaturevalley",
@@ -112,18 +124,20 @@
        ============================================ -->
   <header class="header" id="header">
     <div class="container header__container">
-      <a href="#" class="logo" aria-label="Hotel Nature Valley - Home">
-        <img src="images/icons/logo.png" alt="Hotel Nature Valley Logo" class="logo__image">
+      <a href="/" class="logo" aria-label="Hotel Nature Valley - Home">
+        <img src="/images/icons/logo.webp" alt="Hotel Nature Valley Logo" class="logo__image" width="160" height="201">
       </a>
 
       <nav class="nav" aria-label="Main navigation">
         <ul class="nav__list" id="nav-list">
-          <li><a href="#home" class="nav__link nav__link--active">Home</a></li>
-          <li><a href="#about" class="nav__link">About</a></li>
-          <li><a href="#rooms" class="nav__link">Rooms</a></li>
-          <li><a href="#attractions" class="nav__link">Attractions</a></li>
+          <li><a href="/" class="nav__link nav__link--active">Home</a></li>
+          <li><a href="/rooms/" class="nav__link">Rooms</a></li>
+          <li><a href="/weddings/" class="nav__link">Weddings</a></li>
+          <li><a href="/attractions/" class="nav__link">Attractions</a></li>
+          <li><a href="/amenities/" class="nav__link">Amenities</a></li>
+          <li><a href="/gallery/" class="nav__link">Gallery</a></li>
           <li><a href="/best-4-star-hotel-in-banikhet-dalhousie/" class="nav__link">4-Star Hotel</a></li>
-          <li><a href="#contact" class="nav__link">Contact</a></li>
+          <li><a href="/contact/" class="nav__link">Contact</a></li>
         </ul>
         <a href="https://hotel-nature-valley.revcatalyst.in"
           class="btn btn--primary nav__cta" target="_blank" rel="noopener">
@@ -146,9 +160,12 @@
          HERO SECTION
          ============================================ -->
     <section class="hero" id="home">
-      <video class="hero__video" autoplay muted loop playsinline poster="images/rooms/deluxe-room.jpg">
-        <source src="images/hero/naturevalley.mp4" type="video/mp4">
-      </video>
+      <img src="/images/hero/hero-poster.webp"
+        alt="Aerial view of Hotel Nature Valley surrounded by pine forests in Banikhet, near Dalhousie"
+        class="hero__poster" width="1280" height="720" fetchpriority="high">
+      <video class="hero__video" muted loop playsinline preload="none" aria-hidden="true"
+        data-src-webm="/images/hero/naturevalley.webm"
+        data-src-mp4="/images/hero/naturevalley.mp4"></video>
       <div class="hero__overlay"></div>
 
       <div class="hero__content">
@@ -158,8 +175,7 @@
           <span class="hero__title-location">A Hotel near Dalhousie, Himachal Pradesh</span>
         </h1>
         <p class="hero__subtitle">
-          A tranquil retreat nestled in the Himalayas. Where nature's serenity meets warm hospitality in the heart of
-          Dalhousie.
+          A tranquil retreat nestled in the Himalayas. Where nature's serenity meets warm hospitality near Dalhousie.
         </p>
         <div class="hero__cta">
           <a href="https://hotel-nature-valley.revcatalyst.in"
@@ -185,10 +201,11 @@
       <div class="container">
         <div class="about__grid">
           <div class="about__image-wrapper fade-in-left">
-            <img src="images/gallery/exterior-mountain-view.jpg" alt="Hotel Nature Valley Exterior - Mountain View"
-              class="about__image" loading="lazy">
+            <img src="/images/gallery/exterior-mountain-view-banikhet.webp"
+              alt="Hotel Nature Valley exterior with green mountains in Banikhet, near Dalhousie"
+              class="about__image" width="1200" height="954" loading="lazy" decoding="async">
             <div class="about__image-accent"></div>
-            <img src="images/icons/deer.png" alt="" class="about__deer" aria-hidden="true">
+            <img src="/images/icons/deer.webp" alt="" class="about__deer" width="240" height="299" aria-hidden="true" loading="lazy">
           </div>
 
           <div class="about__content fade-in-right">
@@ -287,8 +304,9 @@
           <!-- Room Card 1 -->
           <article class="room-card fade-in">
             <div class="room-card__image">
-              <img src="images/rooms/deluxe-room.jpg" alt="Deluxe Room with Mountain View" class="room-card__img"
-                loading="lazy">
+              <img src="/images/rooms/deluxe-mountain-view-banikhet.webp"
+                alt="Deluxe Room with mountain view at Hotel Nature Valley, Banikhet" class="room-card__img"
+                width="800" height="577" loading="lazy" decoding="async">
               <span class="room-card__badge">Popular</span>
             </div>
             <div class="room-card__content">
@@ -342,7 +360,7 @@
                   class="btn btn--outline" target="_blank" rel="noopener">
                   Book Now
                 </a>
-                <p class="room-card__booking-note">Secure booking via our partner site. <a href="/cancellation.html">Cancellation policy</a> applies.</p>
+                <p class="room-card__booking-note">Secure booking via our partner site (UPI, cards, net banking). 100% fee within 15 days — see <a href="/cancellation.html">cancellation policy</a>.</p>
               </div>
             </div>
           </article>
@@ -350,8 +368,9 @@
           <!-- Room Card 2 -->
           <article class="room-card fade-in">
             <div class="room-card__image">
-              <img src="images/rooms/premium-suite.jpg" alt="Super Deluxe with Valley View" class="room-card__img"
-                loading="lazy">
+              <img src="/images/rooms/super-deluxe-valley-view-banikhet.webp"
+                alt="Super Deluxe Room with valley view at Hotel Nature Valley, Banikhet" class="room-card__img"
+                width="800" height="577" loading="lazy" decoding="async">
             </div>
             <div class="room-card__content">
               <h3 class="room-card__title">Super Deluxe</h3>
@@ -404,7 +423,7 @@
                   class="btn btn--outline" target="_blank" rel="noopener">
                   Book Now
                 </a>
-                <p class="room-card__booking-note">Secure booking via our partner site. <a href="/cancellation.html">Cancellation policy</a> applies.</p>
+                <p class="room-card__booking-note">Secure booking via our partner site (UPI, cards, net banking). 100% fee within 15 days — see <a href="/cancellation.html">cancellation policy</a>.</p>
               </div>
             </div>
           </article>
@@ -412,8 +431,9 @@
           <!-- Room Card 3 -->
           <article class="room-card fade-in">
             <div class="room-card__image">
-              <img src="images/rooms/family-room.jpg" alt="Luxury with Multiple Beds" class="room-card__img"
-                loading="lazy">
+              <img src="/images/rooms/luxury-room-banikhet.webp"
+                alt="Luxury Room with king bed and forest view at Hotel Nature Valley, Banikhet" class="room-card__img"
+                width="800" height="577" loading="lazy" decoding="async">
               <span class="room-card__badge">Family</span>
             </div>
             <div class="room-card__content">
@@ -468,10 +488,13 @@
                   class="btn btn--outline" target="_blank" rel="noopener">
                   Book Now
                 </a>
-                <p class="room-card__booking-note">Secure booking via our partner site. <a href="/cancellation.html">Cancellation policy</a> applies.</p>
+                <p class="room-card__booking-note">Secure booking via our partner site (UPI, cards, net banking). 100% fee within 15 days — see <a href="/cancellation.html">cancellation policy</a>.</p>
               </div>
             </div>
           </article>
+        </div>
+        <div class="section__cta">
+          <a href="/rooms/" class="btn btn--outline">Compare All Room Sizes, Beds &amp; Rates</a>
         </div>
       </div>
     </section>
@@ -563,6 +586,9 @@
             <p class="amenity-card__text">Perfect venue for destination weddings</p>
           </div>
         </div>
+        <div class="section__cta">
+          <a href="/amenities/" class="btn btn--outline">Explore All Amenities &amp; Timings</a>
+        </div>
       </div>
     </section>
 
@@ -573,7 +599,7 @@
       <div class="container">
         <div class="attractions__header fade-in">
           <span class="section-label">Explore</span>
-          <h2 class="section-title">Nearby Attractions</h2>
+          <h2 class="section-title">Places to Visit near Dalhousie and Banikhet</h2>
           <p class="section-subtitle mx-auto">
             Discover the beauty of Himachal Pradesh with these nearby destinations and experiences.
           </p>
@@ -581,8 +607,9 @@
 
         <div class="grid grid-3 stagger">
           <article class="attraction-card fade-in">
-            <img src="images/attractions/dalhousie.jpg" alt="Dalhousie Hill Station" class="attraction-card__image"
-              loading="lazy">
+            <img src="/images/attractions/dalhousie-himachal.webp"
+              alt="Dalhousie hill station in Himachal Pradesh, 8 km from Hotel Nature Valley"
+              class="attraction-card__image" width="800" height="533" loading="lazy" decoding="async">
             <div class="attraction-card__overlay"></div>
             <div class="attraction-card__content">
               <span class="attraction-card__distance">8 km from hotel</span>
@@ -595,8 +622,9 @@
           </article>
 
           <article class="attraction-card fade-in">
-            <img src="images/attractions/khajjiar.jpg" alt="Khajjiar - Mini Switzerland" class="attraction-card__image"
-              loading="lazy">
+            <img src="/images/attractions/khajjiar-meadow-dalhousie.webp"
+              alt="Khajjiar green meadow surrounded by cedar forest near Dalhousie"
+              class="attraction-card__image" width="750" height="417" loading="lazy" decoding="async">
             <div class="attraction-card__overlay"></div>
             <div class="attraction-card__content">
               <span class="attraction-card__distance">28.6 km from hotel</span>
@@ -609,8 +637,9 @@
           </article>
 
           <article class="attraction-card fade-in">
-            <img src="images/attractions/dharamshala.jpg" alt="Dharamshala and McLeod Ganj"
-              class="attraction-card__image" loading="lazy">
+            <img src="/images/attractions/dharamshala-himachal.webp"
+              alt="Dharamshala and Dhauladhar mountain peaks in Himachal Pradesh"
+              class="attraction-card__image" width="800" height="400" loading="lazy" decoding="async">
             <div class="attraction-card__overlay"></div>
             <div class="attraction-card__content">
               <span class="attraction-card__distance">99 km from hotel</span>
@@ -620,6 +649,9 @@
               </p>
             </div>
           </article>
+        </div>
+        <div class="section__cta">
+          <a href="/attractions/" class="btn btn--outline">See All Attractions &amp; Drive Times</a>
         </div>
       </div>
     </section>
@@ -631,13 +663,14 @@
       <div class="container">
         <div class="gallery__header fade-in">
           <span class="section-label">Gallery</span>
-          <h2 class="section-title">Experience Our Property</h2>
+          <h2 class="section-title">Photo Gallery of Hotel Nature Valley</h2>
         </div>
 
         <div class="gallery__grid stagger">
           <div class="gallery__item fade-in" data-lightbox="gallery">
-            <img src="images/gallery/exterior-mountain-view.jpg" alt="Hotel exterior with mountain backdrop"
-              loading="lazy">
+            <img src="/images/gallery/exterior-mountain-view-banikhet.webp"
+              alt="Lawn terrace and exterior of Hotel Nature Valley with green hills in Banikhet"
+              width="1200" height="954" loading="lazy" decoding="async">
             <div class="gallery__overlay">
               <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -649,7 +682,9 @@
             </div>
           </div>
           <div class="gallery__item fade-in" data-lightbox="gallery">
-            <img src="images/gallery/cozy-room-interior.jpg" alt="Cozy room interior" loading="lazy">
+            <img src="/images/gallery/banquet-hall-banikhet.webp"
+              alt="Banquet hall at Hotel Nature Valley, Banikhet with draped chairs and round tables"
+              width="1200" height="800" loading="lazy" decoding="async">
             <div class="gallery__overlay">
               <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -661,7 +696,9 @@
             </div>
           </div>
           <div class="gallery__item fade-in" data-lightbox="gallery">
-            <img src="images/gallery/restaurant-dining.jpg" alt="Restaurant dining area" loading="lazy">
+            <img src="/images/gallery/restaurant-dining-banikhet.webp"
+              alt="In-house restaurant dining hall at Hotel Nature Valley, Banikhet"
+              width="1200" height="800" loading="lazy" decoding="async">
             <div class="gallery__overlay">
               <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -673,7 +710,9 @@
             </div>
           </div>
           <div class="gallery__item fade-in" data-lightbox="gallery">
-            <img src="images/gallery/swimming-pool.jpg" alt="Swimming pool area" loading="lazy">
+            <img src="/images/gallery/swimming-pool-banikhet.webp"
+              alt="Glass-roofed swimming pool at Hotel Nature Valley, Banikhet"
+              width="1200" height="800" loading="lazy" decoding="async">
             <div class="gallery__overlay">
               <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -685,7 +724,9 @@
             </div>
           </div>
           <div class="gallery__item fade-in" data-lightbox="gallery">
-            <img src="images/gallery/terrace-mountain-view.jpg" alt="Mountain view from terrace" loading="lazy">
+            <img src="/images/gallery/terrace-mountain-view-banikhet.webp"
+              alt="Mountain view from the terrace at Hotel Nature Valley, Banikhet"
+              width="1200" height="675" loading="lazy" decoding="async">
             <div class="gallery__overlay">
               <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -696,6 +737,9 @@
               </svg>
             </div>
           </div>
+        </div>
+        <div class="section__cta">
+          <a href="/gallery/" class="btn btn--outline">View Full Photo Gallery</a>
         </div>
       </div>
     </section>
@@ -711,7 +755,7 @@
         <div class="wedding__grid">
           <div class="wedding__content fade-in-left">
             <span class="section-label">Celebrations</span>
-            <h2 class="section-title">Destination Weddings</h2>
+            <h2 class="section-title">Destination Weddings near Dalhousie</h2>
             <p class="wedding__text">
               Transform your special day into an unforgettable memory amidst the breathtaking Himalayas.
               Hotel Nature Valley offers the perfect backdrop for your dream wedding directly in the lap of nature.
@@ -755,15 +799,19 @@
               </li>
             </ul>
 
-            <button class="btn btn--primary btn--lg"
-              onclick="document.getElementById('wedding-modal').classList.add('modal--open')">
-              Plan Your Wedding
-            </button>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <button class="btn btn--primary btn--lg"
+                onclick="document.getElementById('wedding-modal').classList.add('modal--open')">
+                Plan Your Wedding
+              </button>
+              <a href="/weddings/" class="btn btn--outline btn--lg">Explore Wedding Venue</a>
+            </div>
           </div>
 
           <div class="wedding__image-wrapper fade-in-right">
-            <img src="images/weddings/wedding-placeholder.png" alt="Destination Wedding Setup" class="wedding__image"
-              loading="lazy">
+            <img src="/images/gallery/banquet-hall-banikhet.webp"
+              alt="Banquet hall set up for destination weddings and family celebrations at Hotel Nature Valley, Banikhet"
+              class="wedding__image" width="1200" height="800" loading="lazy" decoding="async">
             <div class="wedding__overlay"></div>
           </div>
         </div>
@@ -816,15 +864,16 @@
           <!-- Image Column -->
           <div class="founders__image-wrapper">
             <div class="founders__image-container">
-              <img src="images/founders/founders.jpg" alt="Our Founders, welcoming you to Nature Valley"
-                class="founders__img" loading="lazy">
+              <img src="/images/founders/ajay-ekta-khanka-founders.webp"
+                alt="Ajay and Ekta Khanka, founders of Hotel Nature Valley in Banikhet, near Dalhousie"
+                class="founders__img" width="800" height="800" loading="lazy" decoding="async">
             </div>
           </div>
 
           <!-- Content Column -->
           <div class="founders__content">
             <span class="section-label">Our Story</span>
-            <h2 class="section-title">Perfectly Pleasant</h2>
+            <p class="section-title">Perfectly Pleasant</p>
 
             <div class="founders__vision">
               <p class="founders__quote">
@@ -847,7 +896,7 @@
             <a class="reviews__badge" href="https://maps.app.goo.gl/u1JR2USoAEathQ8X8" target="_blank" rel="noopener"
               id="google-rating-badge">
               <span class="reviews__badge-stars" aria-hidden="true">★★★★★</span>
-              <span class="reviews__badge-text" id="google-rating-text">Rated by our guests on Google</span>
+              <span class="reviews__badge-text" id="google-rating-text">4.7 ★ · 2,161 reviews on Google</span>
             </a>
           </div>
 
@@ -855,40 +904,49 @@
             <!-- Review 1: Family -->
             <article class="review-card">
               <div class="review-card__header">
-                <span class="review-card__name">Sarah M.</span>
+                <span class="review-card__name">Deepak Verma</span>
                 <span class="review-card__platform">Google Review</span>
               </div>
               <p class="review-card__text">
-                "Honestly the most peaceful trip we've had as a family. The kids loved the open space, and we loved how
-                genuinely kind the staff were. Felt less like a hotel, more like visiting old friends."
+                "Two days stay in connection with my daughter's marriage was incredible. This hotel has a real dynamic
+                team. Totally hygienic, the food is excellent. All the best to the entire staff and owner."
               </p>
-              <div class="review-card__stars">★★★★★</div>
+              <div class="review-card__footer">
+                <span class="review-card__stars">★★★★★</span>
+                <a class="review-card__link" href="https://maps.app.goo.gl/u1JR2USoAEathQ8X8" target="_blank" rel="noopener">Read on Google</a>
+              </div>
             </article>
 
             <!-- Review 2: Couple -->
             <article class="review-card">
               <div class="review-card__header">
-                <span class="review-card__name">Arjun & Priya</span>
-                <span class="review-card__platform">TripAdvisor</span>
-              </div>
-              <p class="review-card__text">
-                "The view from the balcony is worth everything. We spent hours just watching the mist roll in. Simple,
-                clean rooms and the food tasted exactly like home cooked meals."
-              </p>
-              <div class="review-card__stars">★★★★★</div>
-            </article>
-
-            <!-- Review 3: Solo/Peace -->
-            <article class="review-card">
-              <div class="review-card__header">
-                <span class="review-card__name">David K.</span>
+                <span class="review-card__name">Ankit Rampal</span>
                 <span class="review-card__platform">Google Review</span>
               </div>
               <p class="review-card__text">
-                "If you want loud parties, go elsewhere. If you want to hear birdsong and read a book in total silence,
-                this is the place. A rare find in Dalhousie."
+                "Got a very nice room at the last moment on a weekend at a very decent rate. Staff is very polite and
+                cooperative, and front office support was very helpful throughout our stay."
               </p>
-              <div class="review-card__stars">★★★★★</div>
+              <div class="review-card__footer">
+                <span class="review-card__stars">★★★★★</span>
+                <a class="review-card__link" href="https://maps.app.goo.gl/u1JR2USoAEathQ8X8" target="_blank" rel="noopener">Read on Google</a>
+              </div>
+            </article>
+
+            <!-- Review 3: Location & Service -->
+            <article class="review-card">
+              <div class="review-card__header">
+                <span class="review-card__name">Harsh Sharma</span>
+                <span class="review-card__platform">Google Review</span>
+              </div>
+              <p class="review-card__text">
+                "I had a wonderful stay at Hotel Nature Valley Banikhet. The hotel was clean, the staff was polite, and
+                the location was perfect for our trip. Check-in was very smooth."
+              </p>
+              <div class="review-card__footer">
+                <span class="review-card__stars">★★★★★</span>
+                <a class="review-card__link" href="https://maps.app.goo.gl/u1JR2USoAEathQ8X8" target="_blank" rel="noopener">Read on Google</a>
+              </div>
             </article>
           </div>
         </div>
@@ -1015,6 +1073,9 @@
               target="_blank" rel="noopener">
               View on Google Maps
             </a>
+            <a class="btn btn--outline" href="/contact/">
+              Directions from Pathankot &amp; Dalhousie
+            </a>
           </div>
         </div>
       </div>
@@ -1028,7 +1089,7 @@
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
-          <img src="images/icons/logo.png" alt="Hotel Nature Valley" class="footer__logo">
+          <img src="/images/icons/logo.webp" alt="Hotel Nature Valley" class="footer__logo" width="160" height="201" loading="lazy">
           <p class="footer__tagline">Perfectly Pleasant</p>
           <p class="footer__description">
             A tranquil retreat nestled in the Himalayas, where nature's serenity meets warm hospitality.
@@ -1038,12 +1099,14 @@
         <div class="footer__nav">
           <h4 class="footer__title">Quick Links</h4>
           <ul class="footer__links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#rooms">Rooms & Suites</a></li>
-            <li><a href="#attractions">Attractions</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/rooms/">Rooms &amp; Suites</a></li>
+            <li><a href="/weddings/">Destination Weddings</a></li>
+            <li><a href="/attractions/">Places to Visit</a></li>
+            <li><a href="/amenities/">Amenities</a></li>
+            <li><a href="/gallery/">Photo Gallery</a></li>
             <li><a href="/best-4-star-hotel-in-banikhet-dalhousie/">Best 4-Star Hotel in Banikhet</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="/contact/">Contact &amp; Directions</a></li>
           </ul>
         </div>
 
@@ -1127,7 +1190,7 @@
           <line x1="6" y1="6" x2="18" y2="18" />
         </svg>
       </button>
-      <img src="" alt="Gallery Image" class="lightbox__image" id="lightbox-image">
+      <img alt="Gallery Image" class="lightbox__image" id="lightbox-image" width="1200" height="800">
       <button class="lightbox__nav lightbox__nav--prev" aria-label="Previous image">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1144,7 +1207,7 @@
   </div>
 
   <!-- Scripts -->
-  <script src="js/main.js"></script>
+  <script src="/js/main.js"></script>
 </body>
 
 </html>
