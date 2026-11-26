@@ -37,6 +37,7 @@
   // Header Scroll Effect
   // ==============================================
   function handleHeaderScroll() {
+    if (!header || header.hasAttribute('data-scrolled')) return;
     if (window.scrollY > 100) {
       header.classList.add('header--scrolled');
     } else {
@@ -80,8 +81,8 @@
     document.body.style.overflow = '';
   }
 
-  navToggle.addEventListener('click', toggleMobileNav);
-  navOverlay.addEventListener('click', closeMobileNav);
+  if (navToggle) navToggle.addEventListener('click', toggleMobileNav);
+  if (navOverlay) navOverlay.addEventListener('click', closeMobileNav);
 
   // Close nav on link click
   navLinks.forEach(function(link) {
@@ -199,8 +200,10 @@
   }
 
   function closeLightbox() {
+    if (!lightbox) return;
     lightbox.classList.remove('lightbox--open');
     lightbox.setAttribute('aria-hidden', 'true');
+    if (lightboxImage) lightboxImage.removeAttribute('src');
     document.body.style.overflow = '';
   }
 
@@ -234,15 +237,17 @@
   }
 
   // Close lightbox on overlay click
-  lightbox.addEventListener('click', function(e) {
-    if (e.target === lightbox) {
-      closeLightbox();
-    }
-  });
+  if (lightbox) {
+    lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+  }
 
   // Keyboard navigation for lightbox
   document.addEventListener('keydown', function(e) {
-    if (lightbox.classList.contains('lightbox--open')) {
+    if (lightbox && lightbox.classList.contains('lightbox--open')) {
       if (e.key === 'ArrowLeft') {
         navigateLightbox(-1);
       } else if (e.key === 'ArrowRight') {
@@ -346,21 +351,55 @@
   document.head.appendChild(style);
 
   // ==============================================
-  // Video Lazy Loading & Error Handling
+  // Hero Video Deferred Loading (Desktop Only)
   // ==============================================
   const heroVideo = document.querySelector('.hero__video');
-  
+
   if (heroVideo) {
     heroVideo.addEventListener('error', function() {
-      // If video fails to load, show poster image instead
       heroVideo.style.display = 'none';
     });
-    
-    // Attempt to play video
-    heroVideo.play().catch(function() {
-      // Autoplay failed (likely due to browser policy), that's okay
-      console.log('Video autoplay was prevented');
-    });
+
+    function initHeroVideo() {
+      const isDesktop = window.innerWidth >= 768;
+      const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const saveData = navigator.connection && navigator.connection.saveData;
+
+      if (!isDesktop || reducedMotion || saveData) {
+        return;
+      }
+
+      const webmSrc = heroVideo.getAttribute('data-src-webm');
+      const mp4Src = heroVideo.getAttribute('data-src-mp4');
+
+      if (webmSrc) {
+        const sWebm = document.createElement('source');
+        sWebm.src = webmSrc;
+        sWebm.type = 'video/webm';
+        heroVideo.appendChild(sWebm);
+      }
+      if (mp4Src) {
+        const sMp4 = document.createElement('source');
+        sMp4.src = mp4Src;
+        sMp4.type = 'video/mp4';
+        heroVideo.appendChild(sMp4);
+      }
+
+      heroVideo.addEventListener('playing', function() {
+        heroVideo.classList.add('hero__video--playing');
+      }, { once: true });
+
+      heroVideo.load();
+      heroVideo.play().catch(function() {
+        heroVideo.style.display = 'none';
+      });
+    }
+
+    if (document.readyState === 'complete') {
+      initHeroVideo();
+    } else {
+      window.addEventListener('load', initHeroVideo, { once: true });
+    }
   }
 
   // ==============================================
